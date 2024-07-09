@@ -17,12 +17,19 @@ export async function createTrip(app: FastifyInstance) {
           ends_at: z.coerce.date(),
           owner_name: z.string(),
           owner_email: z.string().email(),
+          emails_to_invite: z.array(z.string().email()),
         }),
       },
     },
     async (request) => {
-      const { destination, starts_at, ends_at, owner_name, owner_email } =
-        request.body;
+      const {
+        destination,
+        starts_at,
+        ends_at,
+        owner_name,
+        owner_email,
+        emails_to_invite,
+      } = request.body;
 
       if (dayjs(starts_at).isBefore(new Date())) {
         throw new Error("Invalid trip start date.");
@@ -37,6 +44,29 @@ export async function createTrip(app: FastifyInstance) {
           destination,
           starts_at,
           ends_at,
+          participants: {
+            createMany: {
+              data: [
+                {
+                  name: owner_name,
+                  email: owner_email,
+                  is_owner: true,
+                  is_confirmed: true,
+                },
+                ...emails_to_invite.map((email) => {
+                  return { email };
+                }),
+              ],
+            },
+          },
+        },
+      });
+
+      await prisma.participant.create({
+        data: {
+          name: owner_name,
+          email: owner_email,
+          trip_id: trip.id,
         },
       });
 
