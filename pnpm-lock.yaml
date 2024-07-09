@@ -11,12 +11,18 @@ dependencies:
   '@types/node':
     specifier: ^20.14.10
     version: 20.14.10
+  dayjs:
+    specifier: ^1.11.11
+    version: 1.11.11
   fastify:
     specifier: ^4.28.1
     version: 4.28.1
   fastify-type-provider-zod:
     specifier: ^2.0.0
     version: 2.0.0(fastify@4.28.1)(zod@3.23.8)
+  nodemailer:
+    specifier: ^6.9.14
+    version: 6.9.14
   typescript:
     specifier: ^5.5.3
     version: 5.5.3
@@ -25,6 +31,9 @@ dependencies:
     version: 3.23.8
 
 devDependencies:
+  '@types/nodemailer':
+    specifier: ^6.4.15
+    version: 6.4.15
   prisma:
     specifier: ^5.16.2
     version: 5.16.2
@@ -309,7 +318,12 @@ packages:
     resolution: {integrity: sha512-MdiXf+nDuMvY0gJKxyfZ7/6UFsETO7mGKF54MVD/ekJS6HdFtpZFBgrh6Pseu64XTb2MLyFPlbW6hj8HYRQNOQ==}
     dependencies:
       undici-types: 5.26.5
-    dev: false
+
+  /@types/nodemailer@6.4.15:
+    resolution: {integrity: sha512-0EBJxawVNjPkng1zm2vopRctuWVCxk34JcIlRuXSf54habUWdz1FB7wHDqOqvDa8Mtpt0Q3LTXQkAs2LNyK5jQ==}
+    dependencies:
+      '@types/node': 20.14.10
+    dev: true
 
   /abort-controller@3.0.0:
     resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
@@ -379,6 +393,10 @@ packages:
   /cookie@0.6.0:
     resolution: {integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /dayjs@1.11.11:
+    resolution: {integrity: sha512-okzr3f11N6WuqYtZSvm+F776mB41wRZMhKP+hc34YdW+KmtYYK9iqvHSwo2k9FEH3fhGXvOPV6yz2IcSrfRUDg==}
     dev: false
 
   /esbuild@0.21.5:
@@ -552,6 +570,11 @@ packages:
       cookie: 0.6.0
       process-warning: 3.0.0
       set-cookie-parser: 2.6.0
+    dev: false
+
+  /nodemailer@6.9.14:
+    resolution: {integrity: sha512-Dobp/ebDKBvz91sbtRKhcznLThrKxKt97GI2FAlAyy+fk19j73Uz3sBXolVtmcXjaorivqsbbbjDY+Jkt4/bQA==}
+    engines: {node: '>=6.0.0'}
     dev: false
 
   /on-exit-leak-free@2.1.2:
@@ -736,7 +759,6 @@ packages:
 
   /undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
-    dev: false
 
   /uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
