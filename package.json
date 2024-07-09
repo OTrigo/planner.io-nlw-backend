@@ -14,7 +14,9 @@
     "@prisma/client": "5.16.2",
     "@types/node": "^20.14.10",
     "fastify": "^4.28.1",
-    "typescript": "^5.5.3"
+    "fastify-type-provider-zod": "^2.0.0",
+    "typescript": "^5.5.3",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "prisma": "^5.16.2",
